@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <title>Home</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="box">
+            <div class="chat-section" id="chat-section">
+                <div class="header">
+                    <i class="fa fa-angle-left" onclick="window.location.href='E:/new_project/search.html'"></i>
+                    <h4>Username</h4>
+                    <p id="header"><i class="fa fa-ellipsis"></i></p>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-box">
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>Lorem ipsum dolor</p>
+                            </div>
+                        </div>
+                        <div class="chat incoming">
+                            <img src="map.jpg" alt="">
+                            <div class="details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsum assumenda accusamus repellendus beatae fuga doloribus, voluptatibus quaerat et nesciunt. Tempora, ipsam architecto. Excepturi, molestiae dolorem repudiandae adipisci nostrum voluptas!</p>
+                            </div>
+                        </div>
+                        <div class="chat incoming">
+                            <img src="map.jpg" alt="">
+                            <div class="details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsum assumenda accusamus repellendus beatae fuga doloribus, voluptatibus quaerat et nesciunt. Tempora, ipsam architecto. Excepturi, molestiae dolorem repudiandae adipisci nostrum voluptas!</p>
+                            </div>
+                        </div>
+                        <div class="chat incoming">
+                            <img src="map.jpg" alt="">
+                            <div class="details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsum assumenda accusamus repellendus beatae fuga doloribus, voluptatibus quaerat et nesciunt. Tempora, ipsam architecto. Excepturi, molestiae dolorem repudiandae adipisci nostrum voluptas!</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsum assumenda accusamus repellendus beatae fuga doloribus, voluptatibus quaerat et nesciunt. Tempora, ipsam architecto. Excepturi, molestiae dolorem repudiandae adipisci nostrum voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <form action="#" class="typing-area">
+                        <!-- <input type="text" class="incoming_id" name="incoming_id" hidden> -->
+                        <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
+                        <button><i class="fab fa-telegram-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="profile-section" id="profile-section">
+                <div class="profile-photo-header">
+                    <i class="fa fa-angle-left" id="showChat"></i>
+                    <div class="profile-image">
+                        <img src="https://i.pinimg.com/originals/00/0f/85/000f8537c14a1d9e350ebdd30951fc27.jpg" alt="">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h4 class="Username">Username</h4>
+                    <span class="about-status">About :</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, soluta eius. Aliquam magni natus tenetur ratione dolorem eligendi adipisci veniam provident voluptatibus deserunt quas, non harum similique placeat quis. Voluptas? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate molestias ab delectus nemo, porro omnis rem rerum error alias quasi nisi? Recusandae, assumenda voluptate sed deserunt quos et! Enim, illum.</p>
+                    <form action="#" method="post"><button><i class="fa fa-ban"></i> &nbsp;&nbsp;Block</button></form>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <script>
+        let headerBtn = document.getElementById('header');
+        let profileSection = document.getElementById('profile-section');
+        let chatSection = document.getElementById('chat-section');
+        const deviceWidth = window.innerWidth;
+
+        headerBtn.addEventListener("click", () => {
+            profileSection.style.display = "flex";
+            chatSection.style.display = "none";
+        });
+
+        let showChatBtn = document.getElementById('showChat');
+        showChatBtn.addEventListener("click", () => {
+            profileSection.style.display = "none";
+            chatSection.style.display = "flex";
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="body">
+            <div class="weather-details">
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="city"></p>
+                </div>
+                <div class="temp">
+                    <div class="maintemp">
+                        <img src="" alt="" class="weather-icon">
+                        <h1 class="celsius">10</h1>
+                    </div>
+                    <div class="humidity">
+                        <div class="w-details">
+                            <i class="fa fa-wind"></i>
+                            <h2 class="wind">10</h2>
+                        </div>
+                        <div class="t-details">
+                            <i class="fa fa-tint"></i>
+                            <h2 class="tint">10</h2>
+                        </div>
+                        <div class="p-details">
+                            <i class="fa fa-p"></i>
+                            <h2 class="pressure">10</h2>
+                        </div>
+                        <div class="tm-details">
+                            <i class="fa-solid fa-temperature-high"></i>
+                            <h2 class="temp-max">10</h2>
+                        </div>
+                        <div class="tl-details">
+                            <i class="fa-solid fa-temperature-low"></i>
+                            <h2 class="temp-max">10</h2>
+                        </div>
+                        <div class="tl-details">
+                            <i class="fa-solid fa-temperature-low"></i>
+                            <h2 class="temp-max">10</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header">
+                <h4 class="wether-head">Weather</h4>
+                <div class="search">
+                    <h4>Weather</h4>
+                    <input type="search" placeholder="search...">
+                    <button class="sbutton search-btn"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const apiKey = "eccf849914172e63308a7b80101b3278";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+         
+        const defaultcity = document.querySelector(".city").innerHTML;
+        if(defaultcity === "") {
+            getWeather('Bangalore');
+        }
+        const sbox = document.querySelector(".search input");
+        const sbutton = document.querySelector(".search button");
+
+        async function getWeather(city){
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}&units=metric`);
+            const data = await response.json();
+            console.log(data);
+            document.querySelector('.city').innerHTML = data.name;
+            document.querySelector('.celsius').innerHTML = Math.round(data.main.temp) + '&nbsp;<span><sup>o</sup> C</span>';
+            document.querySelector('.wind').innerHTML = data.wind.speed;
+            document.querySelector('.tint').innerHTML = data.main.humidity;
+
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
+            document.querySelector('.weather-icon').src = iconUrl;
+
+            document.querySelector('.temp-max').innerHTML = Math.round(data.main.temp_max);
+            document.querySelector('.temp-min').innerHTML = Math.round(data.main.temp_min);
+            document.querySelector('.pressure').innerHTML = data.main.pressure;
+        }
+
+
+        sbutton.addEventListener("click", ()=>{
+
+            // Remove any existing error messages
+            var existingError = document.querySelector(".error");
+            if (existingError) {
+                existingError.remove();
+            }
+
+            if(sbox.value===""){ 
+                alert('Enter the city name');
+            }
+            else{
+                getWeather(sbox.value);
+            }
+            sbox.value="";
+        });
+    });
+    </script>
+</body>
+</html>

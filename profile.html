@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <title>Home</title>
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="box">
+            <div class="footer">
+                <a href="#"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="#"><i class="fas fa-search"></i><span>Search</span></a>
+                <a href="#" ><i class="fas fa-circle-plus"></i><span>Post</span></a>
+                <!-- <a href="#"><i class="fas fa-comment"></i><span>Chat</span></a> -->
+                <a href="#" class="active"><i class="fas fa-user"></i><span>Profile</span></a>
+            </div>
+            <div class="profile-body">
+                <div class="profile-and-follower-details">
+                    <div class="profile-photo-section">
+                        <div class="profile-photo">
+                            <form action="#" method="post">
+                                <input style="display:none" type="file" id="my-file">
+                                <img src="map.jpg" onclick="document.getElementById('my-file').click()">
+                                <div class="change-pen" onclick="document.getElementById('my-file').click()"><i class="fa fa-pen"></i></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="follower-details-section">
+                        <div class="username-bio">
+                            <h3>Username</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt suscipit esse eum fugit accusamus cupiditate, inventore vel recusandae at ipsam quaerat odio nemo! Officiis commodi dignissimos minima facere qui? Magni.</p>
+                        </div>
+                        <div class="follower-details">
+                            <div class="total-followers">
+                                <span>117K</span>
+                                <p>Followers</p>
+                            </div>
+                            <div class="total-following">
+                                <span>117M</span>
+                                <p>Followings</p>
+                            </div>
+                            <div class="total-posts">
+                                <span>117</span>
+                                <p>Posts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-fields-section">
+                    <div class="edit-button">
+                        <button class="update-basic-head" id="drop-down" onclick="showUpdateDiv();"><i class="fa fa-user"></i> &nbsp;&nbsp;Update profile &nbsp;<i class="fa fa-angle-down"></i></button>
+                        <button class="edit" id="edit" onclick="makeEditable();"><i class="fa fa-pen"></i></button>
+                    </div>
+                    <form action="#" method="post" id="updateForm">
+                        <p id="error-message" class="error-message">error messages</p>
+                        <div class="input-fields">
+                            <div class="input-container">
+                                <label for="username">Username</label>
+                                <input type="text" class="editable" name="username" value="" readonly required>
+                            </div>
+                            <div class="input-container">
+                                <label for="fullname">Full Name</label>
+                                <input type="text" class="editable" name="fullname" value="" readonly>
+                            </div>
+                            <div class="input-container">
+                                <label for="dob">Birth Date</label>
+                                <input type="date" class="editable" name="dob" value="" readonly>
+                            </div>
+                            <div class="input-container">
+                                <label for="bio">Short Bio</label>
+                                <input type="text" class="editable" name="bio" value="" readonly>
+                            </div>
+                            <!-- <div class="input-container">
+                                <label for="bio">Short Bio</label>
+                                <input type="text" class="editable" name="bio" value="" readonly>
+                            </div> -->
+                            <div class="input-container">
+                                <label for="gender">gender</label>
+                                <select class="editable" id="sel" name="gender" disabled>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Unspecify</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="update-btn"><button id="update" disabled>Save</button></div>
+                    </form>
+                </div>
+                <div class="login-details-section">
+                    <div class="edit-button">
+                        <button class="update-basic-head" id="drop-down" onclick="showLoginUpdateDiv();"><i class="fa fa-lock"></i> &nbsp;&nbsp;Password and security &nbsp;<i class="fa fa-angle-down"></i></button>
+                        <button class="edit" id="log-edit" onclick="makeEditableLogin();"><i class="fa fa-pen"></i></button>
+                    </div>        
+                    <form action="#" id="logForm">
+                        <p id="login-error" class="error-message">error-message</p>
+                        <div class="log-details">
+                            <!-- <div class="input-container">
+                                <label for="username">Username</label>
+                                <input type="text" class="editable" name="username" value="" readonly required>
+                            </div> -->
+                            <div class="input-container">
+                                <label for="username">Email</label>
+                                <input type="email" id="log-email" name="email" value="" readonly required >
+                            </div>
+                            <div class="input-container">
+                                <label for="username">Password</label>
+                                <input type="password" id="log-password" name="password" value="" readonly required>
+                            </div>
+                        </div>
+                        <div class="update-btn"><button id="log-update" disabled>Save</button></div>
+                    </form>
+                </div>
+                <div class="out-feed-help-section">
+                    <div class="edit-button">
+                        <button class="update-basic-head" id="delete-acc" onclick="deleteConfirm();"><i class="fa fa-trash-alt"></i> &nbsp;&nbsp;Delete Account &nbsp;</button>                        
+                    </div>
+                    <form action="#" method="post" id="deleteForm">
+                        <div class="delete-confirm">
+                            <button name="delete" class="delete-button" id="dtbt" disabled><i class="fa fa-trash"></i> <span>Delete Anyway</span></button>
+                            <p><i class="fa fa-warning" style="color: #c35300"></i> &nbsp;All the data will be deleted with your account</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="out-feed-help-section">
+                    <div class="edit-button">
+                        <button class="update-basic-head" onclick=""><i class="fa fa-phone"></i> &nbsp;&nbsp;Help & Support &nbsp;</button>
+                    </div>
+                </div>
+                <div class="out-feed-help-section">
+                    <div class="edit-button">
+                        <button class="update-basic-head" onclick=""><i class="fa fa-message"></i> &nbsp;&nbsp;Feedback &nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // function validateInput(event) {
+        //     const input = event.target;
+        //     const value = input.value;
+        //     const sanitizedValue = value.replace(/[^!#$%^,_&*+=@.a-zA-Z0-9]/g, '');
+        //     input.value = sanitizedValue;
+        // }
+        
+        // function validatespaceInput(event) {
+        //     const input = event.target;
+        //     const value = input.value;
+        //     const sanitizedValue = value.replace(/[^!#$%^,_&*+=@.a-zA-Z0-9 ]/g, '');
+        //     input.value = sanitizedValue;
+        // }
+    
+        function makeEditable() {
+            
+        document.getElementById("edit").disabled = true;
+        document.getElementById("update").disabled = false;
+        document.getElementById("sel").disabled = false;
+        
+        var inputBoxes = document.querySelectorAll('.editable'); // Select textboxes with class 'editable'
+            for (var i = 0; i < inputBoxes.length; i++) {
+                inputBoxes[i].readOnly = false;
+                inputBoxes[i].style.borderBottom="2px solid blue";
+            }
+        }
+
+        document.getElementById("log-update").disabled = true;
+        function makeEditableLogin() {
+            document.getElementById("log-update").disabled = false;
+            let logEmail = document.getElementById('log-email');
+            let logPassword = document.getElementById('log-password');
+            logEmail.readOnly = (logEmail.readOnly === true) ? false : true;
+            logPassword.readOnly = (logPassword.readOnly === true) ? false : true;
+            logEmail.style.borderBottom="2px solid blue";
+            logPassword.style.borderBottom="2px solid blue";
+        }
+
+        let updateForm = document.getElementById("updateForm");
+        let editBtn = document.getElementById("edit");
+        editBtn.style.display = "none";
+        updateForm.style.display = "none";
+        function showUpdateDiv() {
+            updateForm.style.display = (updateForm.style.display === 'none') ? 'block' : 'none';
+            editBtn.style.display = (editBtn.style.display === 'none') ? 'flex' : 'none';
+        }
+
+        let logForm = document.getElementById("logForm");
+        let logBtn = document.getElementById("log-edit");
+        logForm.style.display = "none";
+        logBtn.style.display = "none";
+        function showLoginUpdateDiv() {
+            logForm.style.display = (logForm.style.display === 'none') ? 'block' : 'none';
+            logBtn.style.display = (logBtn.style.display === 'none') ? 'flex' : 'none';
+        }
+        
+        let deleteForm = document.getElementById('deleteForm');
+        let dtBt = document.getElementById('dtbt');
+        deleteForm.style.display = "none";
+        dtBt.disabled = true;
+        function deleteConfirm() {
+            deleteForm.style.display = (deleteForm.style.display === 'none') ? 'flex' : 'none';
+            dtBt.disabled = false;
+        } 
+    </script>
+</body>
+</html>

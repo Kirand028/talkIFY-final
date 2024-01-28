@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var arr = [1,2,3,4,5,6];
+        // function hey(arr) {
+        //     var sum=0;
+        //     for(var i=0; i<arr.length; i++) {
+        //         if(arr[i] % 2 == 0) {
+        //             sum +=arr[i]*arr[i];
+        //         }
+        //     }
+        //     console.log(sum);
+        // }
+        // hey(arr);
+
+        var n1 = 879, res=0, ld=0, rev=0;
+        while(n1>0) {
+            ld = n1%10;
+            res +=ld;
+            // rev = ;
+            n1 = Math.floor(n1 / 10);
+        }
+        document.write(rev);
+        document.write(res);
+    </script>
+</body>
+</html>
